@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Технологии{% endblock %}
+{% block content %}
+<div class="row">
+  <h1>Вот что я умею</h1>
+  <aside class="col-12 col-md-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Python
+      </li>
+      <li class="list-group-item">
+        Django
+      </li>
+    </ul>
+  </aside>
+  <article class="col-12 col-md-9">
+    <p>Для создания этого сайта я использовал IDE VScode.
+      В нём я установил Python версии 3.7.9,
+      создал виртуальное окружение и запустил Django.
+      <br>Теория и практика, команда наставников и одногруппников
+      сделали своё дело и вы видите этот сайт)
+    </p>
+      И скоро я достигну одну из своих целей
+      <br><img src="{% static 'img/target.png' %}"  width="457" height="320">
+    <p>
+    </p>
+  </article>
+</div>
+{% endblock %}
