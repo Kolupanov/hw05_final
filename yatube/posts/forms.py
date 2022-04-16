@@ -1,4 +1,5 @@
 from django import forms
+from django.db import models
 
 from .models import Post, Comment, Follow
 
@@ -43,3 +44,8 @@ class FollowForm(forms.ModelForm):
             'user': 'Подписчик',
             'author': 'Автор',
         }
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'author'],
+                name='unique_follow')
+        ]

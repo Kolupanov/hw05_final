@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Посты автора {{ author.get_full_name }}</h1>
+  <h1>Посты избранного автора</h1>
   {% include 'includes/switcher.html' %}
   {% cache 20 index_page page_obj.number %}
     {% for post in page_obj %}

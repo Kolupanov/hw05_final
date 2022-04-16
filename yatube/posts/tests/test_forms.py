@@ -200,7 +200,7 @@ class CreateFormTests(TestCase):
         }
         for field, value in fields_label.items():
             with self.subTest(field=field):
-                self.assertEquals(
+                self.assertEqual(
                     CreateFormTests.form.fields[field].label, value)
 
     def test_help_text(self):
@@ -212,5 +212,5 @@ class CreateFormTests(TestCase):
         }
         for field, value in fields_help_text.items():
             with self.subTest(field=field):
-                self.assertEquals(
+                self.assertEqual(
                     CreateFormTests.form.fields[field].help_text, value)

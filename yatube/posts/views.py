@@ -8,7 +8,7 @@ from .utils import paginator_mod
 
 def index(request):
     '''Главная страница сайта'''
-    page_obj = paginator_mod(Post.objects.all(), request)
+    page_obj = paginator_mod(Post.objects.select_related('group'), request)
     context = {
         'page_obj': page_obj,
     }
@@ -116,10 +116,8 @@ def follow_index(request):
 def profile_follow(request, username):
     '''Подписаться на автора'''
     author = get_object_or_404(User, username=username)
-    following = Follow.objects.filter(
-        user=request.user, author=author).exists()
-    if request.user != author and not following:
-        Follow.objects.create(user=request.user, author=author)
+    if request.user != author:
+        Follow.objects.get_or_create(user=request.user, author=author)
     return redirect('posts:profile', username=username)
 
 
